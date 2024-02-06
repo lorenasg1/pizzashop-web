@@ -50,6 +50,7 @@ export function SignIn() {
         },
       })
     } catch (error) {
+      console.log(error)
       toast.error('Ocorreu um erro ao enviar o link de autenticação!')
     }
   }
