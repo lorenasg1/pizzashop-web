@@ -31,7 +31,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
   const orderTotal = Intl.NumberFormat('pt-BR', {
     currency: 'BRL',
     style: 'currency',
-  }).format(order.total)
+  }).format(order.total / 100)
 
   return (
     <TableRow>
