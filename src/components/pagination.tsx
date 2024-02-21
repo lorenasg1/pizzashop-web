@@ -10,13 +10,13 @@ import { Button } from './ui/button'
 type PaginationProps = {
   pageIndex: number
   totalCount: number
-  perpage: number
+  perPage: number
   onPageChange: (pageIndex: number) => Promise<void> | void
 }
 
 export function Pagination({
   pageIndex,
-  perpage,
+  perPage: perpage,
   totalCount,
   onPageChange,
 }: PaginationProps) {
@@ -67,7 +67,7 @@ export function Pagination({
           </Button>
 
           <Button
-            onClick={() => onPageChange(totalCount - 1)}
+            onClick={() => onPageChange(pages - 1)}
             variant="outline"
             className="h-8 w-8 p-0"
             title="Última página"
