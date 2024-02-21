@@ -6,11 +6,11 @@ import { z } from 'zod'
 import { getOrders } from '@/api/get-order'
 import { Pagination } from '@/components/pagination'
 import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
+    Table,
+    TableBody,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from '@/components/ui/table'
 
 import { OrderTableFilters } from './order-table-filters'
@@ -84,7 +84,7 @@ export function Orders() {
         {result && (
           <Pagination
             pageIndex={result.meta.pageIndex}
-            perpage={result.meta.perPage}
+            perPage={result.meta.perPage}
             totalCount={result.meta.totalCount}
             onPageChange={handlePagination}
           />
