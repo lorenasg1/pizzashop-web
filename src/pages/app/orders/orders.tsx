@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
 import { z } from 'zod'
 
-import { getOrders } from '@/api/get-order'
+import { getOrders } from '@/api/get-orders'
 import { Pagination } from '@/components/pagination'
 import {
     Table,

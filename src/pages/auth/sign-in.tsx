@@ -37,7 +37,6 @@ export function SignIn() {
 
   async function handleSignIn(data: signInFormData) {
     try {
-      console.log(data)
       await authenticate({ email: data.email })
 
       toast.success('Enviamos um link de autenticação para o seu email!', {
@@ -50,7 +49,6 @@ export function SignIn() {
         },
       })
     } catch (error) {
-      console.log(error)
       toast.error('Ocorreu um erro ao enviar o link de autenticação!')
     }
   }
