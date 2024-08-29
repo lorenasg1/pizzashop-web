@@ -1,6 +1,9 @@
+import 'whatwg-fetch'
+
 import { setupWorker } from 'msw/browser'
 
 import { env } from '@/env'
+
 import { approveOrderMock } from './approve-oder-mock'
 import { cancelOrderMock } from './cancel-order-mock'
 import { deliverOrderMock } from './deliver-order-mock'
@@ -18,7 +21,6 @@ import { getProfileMock } from './get-profile-mock'
 import { registerShopMock } from './register-shop-mock'
 import { signInMock } from './sign-in-mock'
 import { updateProfileMock } from './update-profile-mock'
-
 
 export const worker = setupWorker(
   signInMock,
@@ -40,10 +42,13 @@ export const worker = setupWorker(
   dispatchOrderMock,
 )
 
-export async function enableMSW() {
+export async function enableMocking() {
   if (env.MODE !== 'test') {
     return
   }
+  worker.events.on('request:start', ({ request }) => {
+    console.log('Outgoing:', request.method, request.url)
+  })
 
-  await worker.start()
+  worker.start()
 }

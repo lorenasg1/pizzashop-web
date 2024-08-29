@@ -31,8 +31,12 @@ export function SignIn() {
     },
   })
 
-  const { mutateAsync: authenticate } = useMutation({
+  const { mutateAsync: authenticate, error } = useMutation({
     mutationFn: signIn,
+    onError: () => {
+      console.log({ error })
+      toast.error('Ocorreu um erro ao enviar o link de autenticação!')
+    },
   })
 
   async function handleSignIn(data: signInFormData) {
@@ -49,6 +53,7 @@ export function SignIn() {
         },
       })
     } catch (error) {
+      console.log('entrooou')
       toast.error('Ocorreu um erro ao enviar o link de autenticação!')
     }
   }

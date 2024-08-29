@@ -60,7 +60,7 @@ export function SignUp() {
         },
       })
     } catch (error) {
-      toast.error('Ocorreu um erro ao enviar o link de autenticação!')
+      toast.error('Erro ao cadastrar estabelecimento.')
     }
   }
 

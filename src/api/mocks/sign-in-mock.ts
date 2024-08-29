@@ -1,11 +1,15 @@
 import { http, HttpResponse } from 'msw'
-import { SignInBody } from '../sign-in'
 
+import { SignInBody } from '../sign-in'
 
 export const signInMock = http.post<never, SignInBody>(
   '/authenticate',
   async ({ request }) => {
+    console.log({ request })
+
     const { email } = await request.json()
+
+    console.log({ email })
 
     if (email === 'test@test.com') {
       return new HttpResponse(null, {
@@ -15,7 +19,6 @@ export const signInMock = http.post<never, SignInBody>(
         },
       })
     }
-
-    return new HttpResponse(null, { status: 401 })
+    return new HttpResponse(null, { status: 401, type: 'error' })
   },
 )
